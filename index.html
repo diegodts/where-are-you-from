@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+        <html>
+           <head>
+              <title>OSM and Leaflet</title>
+              <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+           </head>
+<body>
+              <div id = "map" style = "width: 900px; height: 580px"></div>
+<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+              <script>
+                 // Creating map options
+                 var mapOptions = {
+                    center: [0, 0],
+                    zoom: 2
+                 }
+                 
+                 // Creating a map object
+                 var map = new L.map('map', mapOptions);
+                 
+                 // Creating a Layer object
+                 var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+		// add a point
+		var latLngPoint = L.latLng(40.3583264, -7.3512742);
+		var point = new L.marker(latLngPoint);
+		point.addTo(map);
+
+		//add another point
+		var latLngPoint = L.latLng(-26.8448262, -53.578916);
+		var point = new L.marker(latLngPoint);
+		point.addTo(map);
+                 
+                 // Adding layer to the map
+                 map.addLayer(layer);
+              </script>
+           </body>
+           
+        </html>
