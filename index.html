@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-        <html>
-           <head>
-              <title>OSM and Leaflet</title>
-              <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
-           </head>
-<body>
-              <div id = "map" style = "width: 900px; height: 580px"></div>
-<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-              <script>
-                 // Creating map options
-                 var mapOptions = {
-                    center: [0, 0],
-                    zoom: 2
-                 }
+<html>
+	<head>
+		<title>OSM and Leaflet</title>
+        <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    </head>
+	<body>
+		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		<div id="search">
+			<input type="text" name="addr" value="" id="addr" size="10" />
+			<button type="button" onclick="addr_search();">Search</button>
+			<div id="results"/>
+		</div>
+		
+		<!-- onde vão aparecer os resultados da busca -->
+		<div id="results">
+		</div>
+		
+		<ul id="list"></ul>
+		<button type="button" onclick="calculate_location();">Calculate your location</button>
+				
+		<!-- carrega javascripts -->
+		<script src="js/map.js"></script>
+		
+		<!-- onde vai mostrar o mapa -->
+		<div id = "map" style = "width: 900px; height: 580px"></div>
+		<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+        <script>
+			// Creating map options	
+			var mapOptions = {
+				center: [0, 0],
+                zoom: 2
+            }
+            // Creating a map object
+            var map = new L.map('map', mapOptions);
                  
-                 // Creating a map object
-                 var map = new L.map('map', mapOptions);
-                 
-                 // Creating a Layer object
-                 var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-
-		// add a point
-		var latLngPoint = L.latLng(40.3583264, -7.3512742);
-		var point = new L.marker(latLngPoint);
-		point.addTo(map);
-
-		//add another point
-		var latLngPoint = L.latLng(-26.8448262, -53.578916);
-		var point = new L.marker(latLngPoint);
-		point.addTo(map);
-                 
-                 // Adding layer to the map
-                 map.addLayer(layer);
-              </script>
-           </body>
-           
-        </html>
+            // Creating a Layer object
+            var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+            
+			// Adding layer to the map
+			map.addLayer(layer);
+		</script>
+	</body>
+</html>
