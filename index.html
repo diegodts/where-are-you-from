@@ -7,6 +7,12 @@
     </head>
 	<body>
 		<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+		<div class="navbar">
+			<!-- <a href="#home" class="active">Home</a> -->
+			<a href="https://github.com/diegodts/where-are-you-from.git">This project on GitHub <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" height="17"></a>
+			
+			<a href="https://www.freepik.com/search">Home Icon by DinosoftLabs</a>
+		  </div>
 		<div id="search">
 			<input type="text" name="addr" value="" id="addr" size="10" />
 			<button type="button" onclick="addr_search();">Search</button>
@@ -24,7 +30,7 @@
 		<script src="js/map.js"></script>
 		
 		<!-- onde vai mostrar o mapa -->
-		<div id = "map" style = "width: 900px; height: 580px"></div>
+		<div id = "map"></div>
 		<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
         <script>
 			// Creating map options	
@@ -41,14 +47,7 @@
 			// Adding layer to the map
 			map.addLayer(layer);
 		</script>
-		
-		
-		
-		<div class="navbar">
-		  <!-- <a href="#home" class="active">Home</a> -->
-		  <a href="https://github.com/diegodts/where-are-you-from.git">This project on GitHub <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" height="17"></a>
-		  
-		  <a href="https://www.freepik.com/search">Home Icon by DinosoftLabs</a>
-		</div>
+		<!-- Loading animation -->
+		<div id="loading" class="loading">Loading...</div>
 	</body>
 </html>

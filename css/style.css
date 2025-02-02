@@ -1,10 +1,11 @@
-/* Place the navbar at the bottom of the page, and make it stick */
+/* Place the navbar at the top of the page, and make it stick */
 .navbar {
   background-color: #333;
   overflow: hidden;
   position: fixed;
-  bottom: 0;
+  top: 0;
   width: 100%;
+  z-index: 1000; /* Ensure the navbar is above other content */
 }
 
 /* Style the links inside the navigation bar */
@@ -28,4 +29,38 @@
 .navbar a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+/* Additional styles for the map and layout */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#search {
+  padding: 10px;
+  margin-top: 50px; /* Adjust based on the height of the navbar */
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 150px); /* Adjust 150px based on the height of the elements above the map */
+}
+
+@media (max-width: 600px) {
+  #map {
+    height: calc(100vh - 200px); /* Adjust 200px for mobile view */
+  }
+}
+
+/* Loading animation styles */
+.loading {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #333;
 }

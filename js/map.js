@@ -28,6 +28,9 @@ function addCityToTheList(lat, lng, name) {
 
 function addr_search() {
     var inp = document.getElementById("addr");
+	
+	// Show loading animation
+	document.getElementById('loading').style.display = 'block';
 
     $.getJSON('http://nominatim.openstreetmap.org/search?format=json&city=' + inp.value, function(data) {
         var items = [];
@@ -48,6 +51,8 @@ function addr_search() {
         } else {
             $('<p>', { html: "No results found" }).appendTo('#results');
         }
+		// Hide loading animation
+		document.getElementById('loading').style.display = 'none';
     });
 }
 
